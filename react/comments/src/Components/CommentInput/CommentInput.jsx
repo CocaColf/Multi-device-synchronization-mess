@@ -33,11 +33,16 @@ class CommentInput extends Component {
         });
     }
 
+    // 点击提交
     handleSubmit(e) {
         e.preventDefault();
         if (this.props.onSubmit) {
-            const { user, comment } = this.state
-            this.props.onSubmit({user, comment})
+            const { user, comment } = this.state;
+            this.props.onSubmit({
+                user, 
+                comment,
+                createTime: +new Date()
+            });
           }
         
         this._setUsername(this.state.user);

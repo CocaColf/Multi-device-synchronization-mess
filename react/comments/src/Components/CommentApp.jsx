@@ -10,6 +10,10 @@ class CommentApp extends Component {
         }
     }
 
+    _saveComments() {
+        localStorage.setItem('comments', JSON.stringify(this.state.comments));
+    }
+
     _loadComments() {
         let comments = localStorage.getItem('comments');
 
@@ -26,20 +30,32 @@ class CommentApp extends Component {
         this._loadComments();
     }
 
+    // 收到表单提交的数据并保存
     getData(data) {
         this.state.comments.push(data);
         this.setState({
             comments: this.state.comments
         });
 
-        localStorage.setItem('comments', JSON.stringify(this.state.comments));
+        this._saveComments();
+    }
+
+    // 删除评论
+    handleDelete(index) {
+        let comments = this.state.comments;
+        comments.splice(index, 1);
+        this.setState({comments});
+
+        this._saveComments();
     }
 
     render() {
         return (
            <div className="container">
                 <CommentInput onSubmit={this.getData.bind(this)}/>           
-                <CommentList comments={this.state.comments}/>
+                <CommentList 
+                    comments={this.state.comments}
+                    onDeleteComment={this.handleDelete.bind(this)}/>
            </div>
         );
     }
