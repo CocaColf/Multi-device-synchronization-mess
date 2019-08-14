@@ -1,2 +1,1 @@
-感觉这么搞其实不是github该有的用法啊，开个仓库专门用来同步一些文件或代码，以多设备进行同步以及备份。
-**Sorry**  :sweat_smile:
+demos and partice
