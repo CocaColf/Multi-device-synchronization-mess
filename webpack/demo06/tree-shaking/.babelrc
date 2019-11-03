@@ -1,0 +1,7 @@
+{
+    "presets": [
+        ["@babel/preset-env", {
+            "useBuiltIns": "usage"    // 仅打包入使用的es6语法，否则会打入整个polyfill;配置了这里后，文件可以不用加import @babel/polifill
+        }]
+    ] 
+}
