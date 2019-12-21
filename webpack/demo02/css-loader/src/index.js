@@ -1,4 +1,6 @@
 import basketballJersey from  './basketball_jersey.png';
+
+// 模块化的css，不会影响全局
 import  style from './index.css';
 import createBj from './createImg';
 
